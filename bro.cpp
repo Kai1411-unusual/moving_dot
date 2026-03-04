@@ -1,7 +1,7 @@
 #include <iostream>
 #include <utility>
 #include <string>
-
+#include <cstdlib>
 using namespace std;
 
 template<typename t>
@@ -12,6 +12,9 @@ t print_dot(t a){
 
 void introduction(){
     cout << "Welcome to the dot game where you just need to press enter for the dots to appear.\n";
+    cout << "Press enter for dots to appear vertically and horizontally:v\n";
+    cout << "Press 'q' to quit=)\n";
+    cout << "When the dots finished appearing, you can press 'q' to quit\n";
     cout << "Enjoy!=)\n";
 }
 void print_dot_horizontal(char a){
@@ -19,8 +22,11 @@ void print_dot_horizontal(char a){
     if(baka.empty()){
         for (int i = 0; i < 5; i++){
         cout << a;
+        }
+    }else if(baka == "q"){
+        exit(EXIT_FAILURE);
     }
-    }else{
+    else{
         for (int i = 0; i < 5; i++){
         cout << a;
     }
@@ -34,7 +40,9 @@ void print_dot_horizontal_(char d){
     if(cyka.empty()){
         for (int i = 0; i < 5; i++){
         cout << d;
-    }
+        }
+    }else if(cyka == "q"){
+        exit(EXIT_FAILURE);
     }else{
         for (int i = 0; i < 5; i++){
         cout << d;
@@ -50,6 +58,8 @@ void print_dot_vertical(char b){
         for(int i = 0; i < 5;i++){
         cout << b << endl;
         }
+    }else if(kore == "q"){
+        exit(EXIT_FAILURE);
     }else{
         for(int i = 0; i < 5;i++){
         cout << b << endl;
@@ -65,6 +75,8 @@ void print_dot_vertical_(char c){
         for(int i = 0; i < 5; i++){
         cout << "     " << c << endl;
     }
+    }else if(wa == "q"){
+        exit(EXIT_FAILURE);
     }
     else{
         for(int i = 0; i < 5; i++){
@@ -78,8 +90,8 @@ int main(){
 
     introduction();
     
-    char dot = '*';
-    string enter, exij;
+    char dot = '.';
+    string enter;
     while(true){
         
         getline(cin, enter);
@@ -93,7 +105,6 @@ int main(){
             
             print_dot_vertical_(dot);
             
-        
         }
     
         else if(enter == "exit"){
